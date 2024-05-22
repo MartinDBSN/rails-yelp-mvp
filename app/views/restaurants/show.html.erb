@@ -1,0 +1,12 @@
+<div class="col-8 mx-auto card p-3 m-2">
+  <h1>Restaurant: <%= @restaurant.name %></h1>
+    <p class="text-secondary">📍<%= @restaurant.address %></p>
+  <p class="text-secondary">📞<%= @restaurant.phone_number %></p>
+  <%= link_to "Add a new review", new_restaurant_review_path(@restaurant.id) %>
+  <%= @restaurant.reviews.each do |review|%>
+  <li class="list-group-item"><%= review.content %></li>
+  <% end %>
+</div>
+<p class="mt-2 col-8 mx-auto">
+<%= link_to "Back to the list", restaurants_path %>
+</p>

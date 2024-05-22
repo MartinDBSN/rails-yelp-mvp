@@ -1,0 +1,23 @@
+<div class="mt-3 col-8 mx-auto">
+  <div class="d-flex justify-content-between">
+  <h1>All restaurants</h1>
+<%= link_to new_restaurant_path do %>
+  <p class="btn btn-primary">Add a new restaurant</p>
+  <% end %>
+  </div>
+
+  <% @restaurants.each do |restaurant| %>
+  <div class="card p-2 m-3">
+  <div class="d-flex justify-content-between">
+  <h2 class="text-primary"><%= restaurant.name %></h2>
+  <p class="font-weight-bold text-white bg-info p-2 rounded"><%= restaurant.category.upcase %></p>
+  </div>
+  <p class="text-secondary">📍<%= restaurant.address %></p>
+  <p class="text-secondary">📞<%= restaurant.phone_number %></p>
+<%= link_to restaurant_path(restaurant.id) do%>
+<p class="btn btn-success w-25">View</p>
+<% end %>
+</div>
+  <% end %>
+
+</div>
